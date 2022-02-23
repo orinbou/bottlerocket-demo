@@ -6,7 +6,7 @@ Bottlerocket demo for EKS
 
 注意：
 この手順には、 eksctl バージョン 0.84.0 以降が必要です。  
-詳細は下記の【To launch Bottlerocket nodes using eksctl】をご確認ください。  
+詳細は下記の 【To launch Bottlerocket nodes using eksctl】 をご確認ください。  
 https://docs.aws.amazon.com/eks/latest/userguide/launch-node-bottlerocket.html
  
 ---
@@ -113,10 +113,10 @@ ip-xxx-xxx-xxx-xxx.us-west-1.compute.internal   Ready    <none>   6m34s   v1.21.
 ip-xxx-xxx-xxx-xxx.us-west-1.compute.internal   Ready    <none>   6m34s   v1.21.9
 ip-xxx-xxx-xxx-xxx.us-west-1.compute.internal   Ready    <none>   6m26s   v1.21.9
 ```
-全ノードが Ready になっていればOKです。
+全ノード（🚀x3台）が Ready になっていればOKです。
 
-もう少し詳しく確認すると、
-しっかりと Bottlerocket OS 1.6.0 (aws-k8s-1.21) になっていることが確認できます。
+もう少し詳しく確認してみるとワーカーノードの OS-IMAGE が、  
+ちゃんと 【Bottlerocket OS 1.6.0 (aws-k8s-1.21)】 になっていることが確認できます。
 ```
 kubectl get nodes -o wide
 
@@ -167,21 +167,6 @@ deployment.apps/user created
 service/user created
 ```
 
----
-
-## 🚀 デモアプリへアクセス
-デモアプリ（Sock Shop）画面へアクセスするためのURLを確認する。
-```
-kubectl get svc front-end -n sock-shop
-
-NAME        TYPE           CLUSTER-IP        EXTERNAL-IP                                     PORT(S)        AGE
-front-end   LoadBalancer   xxx.xxx.xxx.xxx   yyyyyy-1234567890.us-west-1.elb.amazonaws.com   80:30001/TCP   7m46s
-```
-Webブラウザでデモアプリ（Sock Shop）画面へアクセスする。  
-http://yyyyyy-1234567890.us-west-1.elb.amazonaws.com/
-
-![demo](./assets/front-end.png)
-
 コマンド（kubectl）でデモアプリのk8sリソース（Pod）の状態を確認する。
 ```
 kubectl get pod -n sock-shop
@@ -201,6 +186,24 @@ shipping-5d7c4f8bbf-tpksr      1/1     Running   0          6m29s
 user-846f474c46-wdb8j          1/1     Running   0          6m28s
 user-db-5f68d7b558-w97g9       1/1     Running   0          6m29s
 ```
+全ての Pod が Running になっていればOKです。
+
+---
+
+## 🚀 デモアプリへアクセス
+デモアプリ（Sock Shop）画面へアクセスするためのURLを確認する。
+```
+kubectl get svc front-end -n sock-shop
+
+NAME        TYPE           CLUSTER-IP        EXTERNAL-IP                                     PORT(S)        AGE
+front-end   LoadBalancer   xxx.xxx.xxx.xxx   yyyyyy-1234567890.us-west-1.elb.amazonaws.com   80:30001/TCP   7m46s
+```
+Webブラウザでデモアプリ（Sock Shop）画面へアクセスする。  
+http://yyyyyy-1234567890.us-west-1.elb.amazonaws.com/
+
+![demo](./assets/front-end.png)
+
+ちゃんとデモアプリ（Sock Shop）が動いてますね。
 
 ---
 
