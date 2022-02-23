@@ -2,13 +2,14 @@ apiVersion: eksctl.io/v1alpha5
 kind: ClusterConfig
 
 metadata:
-  name: bottlerocket-demo
-  region: us-west-2
-  version: "1.21"
+  name: bottlerocket-demo2
+  region: us-west-1
+  version: '1.21'
 
 managedNodeGroups:
   - name: bottlerocket-demo-ng
-    instanceType: t3.medium
+    instanceType: m5.large
+    amiFamily: Bottlerocket
     minSize: 1
     maxSize: 4
     desiredCapacity: 3
