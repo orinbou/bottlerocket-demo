@@ -1,5 +1,8 @@
-# bottlerocket-demo
-Bottlerocket demo for EKS
+# bottlerocket-demo 🚀
+
+🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀  
+Bottlerocket demo for EKS  
+🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀🚀  
 
 ---
 
@@ -14,22 +17,22 @@ Bottlerocketは、
 AWSが独自開発したコンテナ化されたワークロード（※EKS、ECSなど）を実行するために特別に設計された、軽量で安全な LinuxベースのオープンソースOSです。
 AMIとして提供されるので、コンテナを実行するワーカーノード（ホストOS）として利用します
 
-![demo](./assets/bottlerocket.png)
+![Bottlerocket🚀](./assets/bottlerocket.png)
 
 https://github.com/bottlerocket-os/bottlerocket
 
 ---
 
 ## デモの流れ
-* EKSクラスタ構築
-* デモアプリをデプロイ
-* デモアプリへアクセス
-* EKSクラスタ削除（後始末）
+* 🚀 EKSクラスタ構築
+* 🚀 デモアプリをデプロイ
+* 🚀 デモアプリへアクセス
+* 🚀 EKSクラスタ削除（後始末）
 
 ---
 # デモを行う
 
-## EKSクラスタ構築
+## 🚀 EKSクラスタ構築
 EKSクラスタを構築する。
 ```
 eksctl create cluster -f eks-cluster/cluster.yaml
@@ -127,7 +130,7 @@ ip-xxx-xxx-xxx-xxx.us-west-1.compute.internal   Ready    <none>   9m26s   v1.21.
 
 ---
 
-## デモアプリをデプロイ
+## 🚀 デモアプリをデプロイ
 名前空間を作成する。
 ```
 kubectl create namespace sock-shop
@@ -168,7 +171,7 @@ service/user created
 
 ---
 
-## デモアプリへアクセス
+## 🚀 デモアプリへアクセス
 デモアプリ（Sock Shop）画面へアクセスするためのURLを確認する。
 ```
 kubectl get svc front-end -n sock-shop
@@ -203,33 +206,49 @@ user-db-5f68d7b558-w97g9       1/1     Running   0          6m29s
 
 ---
 
-## EKSクラスタ削除（後始末）
+## 🚀 EKSクラスタ削除（後始末）
 最後にEKSクラスタを削除する。
 ```
-eksctl delete cluster -f eks-cluster/cluster.yaml
+eksctl delete cluster -f eks-cluster/cluster.yaml --wait
 ```
 実行結果（※正常に終了）
 ```
-[ℹ]  eksctl version 0.34.0
-[ℹ]  using region us-west-2
-[ℹ]  deleting EKS cluster "bottlerocket-demo"
-[ℹ]  deleted 0 Fargate profile(s)
-[✔]  kubeconfig has been updated
-[ℹ]  cleaning up AWS load balancers created by Kubernetes objects of Kind Service or Ingress
-[ℹ]  2 sequential tasks: { delete nodegroup "bottlerocket-demo-ng", delete cluster control plane "bottlerocket-demo" [async] }
-[ℹ]  will delete stack "eksctl-bottlerocket-demo-nodegroup-bottlerocket-demo-ng"
-[ℹ]  waiting for stack "eksctl-bottlerocket-demo-nodegroup-bottlerocket-demo-ng" to get deleted
-[ℹ]  will delete stack "eksctl-bottlerocket-demo-cluster"
-[✔]  all cluster resources were deleted
+2022-02-23 12:07:58 [ℹ]  eksctl version 0.84.0
+2022-02-23 12:07:58 [ℹ]  using region us-west-1
+2022-02-23 12:07:58 [ℹ]  deleting EKS cluster "bottlerocket-demo2"
+2022-02-23 12:08:46 [ℹ]  deleted 0 Fargate profile(s)
+2022-02-23 12:08:46 [✔]  kubeconfig has been updated
+2022-02-23 12:08:46 [ℹ]  cleaning up AWS load balancers created by Kubernetes objects of Kind Service or Ingress
+2022-02-23 12:09:54 [ℹ]  
+2 sequential tasks: { delete nodegroup "bottlerocket-demo-ng", delete cluster control plane "bottlerocket-demo2" 
+}
+2022-02-23 12:09:54 [ℹ]  will delete stack "eksctl-bottlerocket-demo2-nodegroup-bottlerocket-demo-ng"
+2022-02-23 12:09:54 [ℹ]  waiting for stack "eksctl-bottlerocket-demo2-nodegroup-bottlerocket-demo-ng" to get deleted
+2022-02-23 12:09:54 [ℹ]  waiting for CloudFormation stack "eksctl-bottlerocket-demo2-nodegroup-bottlerocket-demo-ng"
+2022-02-23 12:10:13 [ℹ]  waiting for CloudFormation stack "eksctl-bottlerocket-demo2-nodegroup-bottlerocket-demo-ng"
+2022-02-23 12:10:33 [ℹ]  waiting for CloudFormation stack "eksctl-bottlerocket-demo2-nodegroup-bottlerocket-demo-ng"
+2022-02-23 12:10:51 [ℹ]  waiting for CloudFormation stack "eksctl-bottlerocket-demo2-nodegroup-bottlerocket-demo-ng"
+2022-02-23 12:11:06 [ℹ]  waiting for CloudFormation stack "eksctl-bottlerocket-demo2-nodegroup-bottlerocket-demo-ng"
+2022-02-23 12:11:25 [ℹ]  waiting for CloudFormation stack "eksctl-bottlerocket-demo2-nodegroup-bottlerocket-demo-ng"
+2022-02-23 12:11:43 [ℹ]  waiting for CloudFormation stack "eksctl-bottlerocket-demo2-nodegroup-bottlerocket-demo-ng"
+2022-02-23 12:12:03 [ℹ]  waiting for CloudFormation stack "eksctl-bottlerocket-demo2-nodegroup-bottlerocket-demo-ng"
+2022-02-23 12:12:21 [ℹ]  waiting for CloudFormation stack "eksctl-bottlerocket-demo2-nodegroup-bottlerocket-demo-ng"
+2022-02-23 12:12:38 [ℹ]  waiting for CloudFormation stack "eksctl-bottlerocket-demo2-nodegroup-bottlerocket-demo-ng"
+2022-02-23 12:12:39 [ℹ]  will delete stack "eksctl-bottlerocket-demo2-cluster"
+2022-02-23 12:12:39 [ℹ]  waiting for stack "eksctl-bottlerocket-demo2-cluster" to get deleted
+2022-02-23 12:12:39 [ℹ]  waiting for CloudFormation stack "eksctl-bottlerocket-demo2-cluster"
+2022-02-23 12:12:55 [ℹ]  waiting for CloudFormation stack "eksctl-bottlerocket-demo2-cluster"
+2022-02-23 12:13:14 [ℹ]  waiting for CloudFormation stack "eksctl-bottlerocket-demo2-cluster"
+2022-02-23 12:13:34 [ℹ]  waiting for CloudFormation stack "eksctl-bottlerocket-demo2-cluster"
+2022-02-23 12:13:51 [ℹ]  waiting for CloudFormation stack "eksctl-bottlerocket-demo2-cluster"
+2022-02-23 12:14:06 [ℹ]  waiting for CloudFormation stack "eksctl-bottlerocket-demo2-cluster"
+2022-02-23 12:14:26 [ℹ]  waiting for CloudFormation stack "eksctl-bottlerocket-demo2-cluster"
+2022-02-23 12:14:42 [ℹ]  waiting for CloudFormation stack "eksctl-bottlerocket-demo2-cluster"
+2022-02-23 12:14:42 [✔]  all cluster resources were deleted
 ```
 ※追記：  
 AWSマネコンの CloudFormation > スタック で確認したところ削除に失敗（DELETE_FAILED）することがあるようです。  
 その場合は、AWSマネコンから関連リソース（VPC, Subnetなど）を手動で削除してからスタックを削除してください。  
-
-コマンド（eksctl）実行時にスタック削除結果を待機する場合は「--wait」オプションを使うと良さそうです。
-```
-eksctl delete cluster -f eks-cluster/cluster.yaml --wait
-```
 
 ---
 
